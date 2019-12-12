@@ -30,7 +30,13 @@ end
     else
       redirect_to "root_path"
     end
+
+  if @room.save
+    redirect_to action: "show", id: @room.id
+  else
+    redirect_to "root_path"
   end
+end
 
   private
   def room_shop_params
