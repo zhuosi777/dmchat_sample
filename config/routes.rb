@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   devise_for :users
   resources :rooms, only: [:show, :create] do
     resources :messages, only: [:create]
+  end
 end

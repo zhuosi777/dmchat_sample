@@ -3,11 +3,23 @@
 <% if user_signed_in? %>
   ~<%= current_user.name %>がログインしてます~
   <%= link_to "ログアウト", destroy_user_session_path ,:method => :delete %>
+  <br>
+  <h2>ショップ一覧</h2>
+  <br>
 
+  <% @shops.each do |shop| %>
+    <%= shop.name %>
+  <% end %>
 <!--Shopでログインしてたら-->
 <% elsif shop_signed_in? %>
   ~<%= current_shop.name %>がログインしてます~
   <%= link_to "ログアウト", destroy_shop_session_path ,:method => :delete %>
+  <br>
+  <h2>ユーザー一覧</h2>
+  <br>
+  <% @users.each do |user| %>
+    <%= user.name %>
+  <% end %>
 
 <!--ログインしてなかったら-->
 <% else %>
